@@ -1,0 +1,85 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>0225</title>
+  </head>
+  <body></body>
+  <script>
+    /**
+     *2023-02-25 javascript study
+     *127.0.01 = localhost
+     * 자바스트립트 변수 타입
+     *원시타입=======================
+     * string: 문자형
+     * number : 숫자형
+     * boolean : 참 /거짓 (true , false)
+     *
+     * 객체타입 ==================
+     * object: 객체
+     * array : 배열
+     * function:함수
+     *
+     * =========================
+     * symbol: 심볼(고유값)
+     */
+    let str = "문자열 변수입니다";
+    console.log("string type", str);
+    console.log("string type", "12345");
+    let num = 12345;
+    console.log("numder type", num);
+    let bool = true;
+    console.log("boolean type", bool);
+    bool = false;
+    console.log("boolean type", bool);
+
+    /**
+     *object(객체타입)
+     *key value 한쌍으로 이뤄져있다(key:value)
+     *key는 이름이 정해져있지않다
+     *value는 변수타입이먄 뭐든 올수있다
+     */
+    let obj = { a: "문자", b: 100, c: false }; //여러개 넣을수있다
+    console.log("obj", obj);
+    //객체의 접근 방식은 bot(.)을 통하거나 대괄호(['kye'])를 통한 방식이있다
+    //dot(.)
+    console.log("obj.a", obj.a);
+    //대괄호([])
+    console.log("obj['b']", obj["b"]);
+    //대괄호의 변수로 접근하는 경우
+    const key = "c";
+    console.log("obj[key]", obj[key]);
+    /**
+     * array
+     * 배열은 kye가 없고 velue만 있다.
+     *배열은 순서(index)가있다
+     *배열은 길이(length)가있다 
+     *배열의 값은 변수타입이면 뭐든 넣을 수있다
+     배열의 접근은  [index]로 접근한다.
+     */
+    let arr = ["str", 1234, false]; //배열의 값은 변수타입이면 뭐든 넣을 수있다
+    console.log("arr", arr);
+    console.log("arr length", arr.length);
+    console.log("arr  index 0", arr[0]);
+    console.log("arr index 1", arr[1]);
+    console.log("arr index 2", arr[2]);
+
+    /*
+     *function
+     * 선언식 function키워드로 선언(기명함수)
+     * 표현식 변수에 할당해서 선언
+     *  function call() {} //함수기본구조
+     * 변수에 할당하는 방식은 function키워드 방식과 함수방식이있따
+     * 변수에 할당하는 함수는 익명함수
+     **/
+    function call() {
+      //실행구문
+    }
+    console.log("function call", call);
+    //es5까지
+    const func = function () {};
+    //es6 이후
+    const arrow = () => {};
+  </script>
+</html>
