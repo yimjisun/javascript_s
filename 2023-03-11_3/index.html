@@ -1,0 +1,81 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /**
+       * 2023-03-11 javscript styudy
+       * 조건문 (if )
+       */
+
+      //if
+      const x = 5;
+      //조건문에 조건은 true , false 만판단
+      //if ()<-조건문 {} 이구조가 기초
+      if (x === 10) {
+        console.log("x===10 true"); //콘솔이 뜨면 실행됐다
+      }
+      //else 아니면
+      else {
+        console.log("x===10 false");
+      }
+
+      const y = 20;
+      if (y === 20) {
+        console.log("y===20");
+      }
+      //else if 아니면 만약
+      else if (y === 10) {
+        console.log("y===10");
+      } else if (y === 5) {
+        console.log("y===5");
+      } else if (y === 3) {
+        console.log("y===3");
+      } else {
+        console.log("y===any");
+      }
+
+      const z = 30;
+      if (z > 40) {
+        console.log("z>5 true");
+      } else if (z > 1) {
+        console.log("z>1 true");
+      } else if (z > 10) {
+        console.log("z>10 true");
+      }
+
+      //string의 true, false
+      const str = "";
+      if (str) {
+        console.log("str is true");
+      } else {
+        console.log("str is false");
+      }
+
+      //number 의 true ,false
+      const num = -10;
+      if (num) {
+        console.log("num is true");
+      } else {
+        console.log("num is false");
+      }
+
+      //null ,undefined true , false
+      if (null) {
+        console.log("null is true");
+      } else {
+        console.log("null is false");
+      }
+
+      if (undefined) {
+        console.log("undefined is true");
+      } else {
+        console.log("undefined is false");
+      }
+    </script>
+  </body>
+</html>

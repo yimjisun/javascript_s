@@ -1,0 +1,71 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /**
+       * 2023-03-04 javscript styudy
+       * 자바스크립트 변수의 복사
+       * 원시타입 객체타입
+       */
+
+      /**
+       * 원시타입의 복사
+       */
+      let name = "chris"; // 리터럴 할당
+      let name2 = name; // 변수의 복사
+      console.log("name", name);
+      console.log("name2", name2);
+      name = "judy"; //변수의 값을 바꿈
+      console.log("name", name);
+      console.log("name2", name2);
+      name2 = "candy";
+      console.log("name", name);
+      console.log("name2", name2);
+
+      /**
+       * 객체타입의 복사
+       */
+      let obj = {
+        a: 10,
+        b: 20,
+      };
+      let obj2 = obj;
+      console.log("obj", obj);
+      console.log("obj2", obj2);
+      //   obj = { //obj새로할당
+      //     c: 50,
+      //     d: 30,
+      //   };
+      //   console.log("obj", obj);
+      //   console.log("obj2", obj2);
+
+      //object 내의 값을 수정
+      obj.a = 30;
+      console.log("obj", obj);
+      console.log("obj2", obj2);
+      obj2.b = 100;
+      console.log("obj", obj);
+      console.log("obj2", obj2);
+
+      //array 객체의 복사
+      let arr = [1, 2, 3, 4, 5];
+      let arr2 = arr;
+      //   arr = [5, 6, 7, 8, 9]; 배열의 새로할당
+      //   console.log("arr"arr);
+      //   console.log("arr2"arr2);
+
+      //배열의수정
+      arr[2] = 10;
+      console.log("arr", arr);
+      console.log("arr2", arr2);
+      arr[4] = 20;
+      console.log("arr", arr);
+      console.log("arr2", arr2);
+    </script>
+  </body>
+</html>

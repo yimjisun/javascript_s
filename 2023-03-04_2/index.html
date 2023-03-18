@@ -1,0 +1,53 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /**
+       * 2023-03-04 javscript styudy
+       * 비교연산자
+       * = 할당연상자 (복사)
+       * == 비교
+       */
+
+      //원시타입의 비교
+      //동등비교 == , ===
+      const str = "string";
+      const str2 = "string2";
+      console.log("str==str2", str == str2); //같음
+      //!= nat epual 같지않음
+      console.log("str!=str2", str != str2); //같지않음
+
+      //타입 비교(숫자일때 깊게비교)
+      const num = 10;
+      const num2 = "10";
+      console.log("num==num2", num == num2); //같음  (거의 쓰지않음)
+      console.log("num===num2", num === num2); //깊게비교 (타입까지비교 ""문자임)
+      console.log("num!=num2", num != num2); //같지않음
+      console.log("num!==num2", num !== num2); //같지않으 (타입까지비교 ""문자임)
+      const notSteNull = "null";
+      const steNull = null;
+      console.log("steNull==notSteNull", steNull == notSteNull); // 숫자만 사용가능
+
+      //객체타입비교
+      // 객체의 비교는 메모리 값이 아닌 주소로 비교한다
+      const obj = { a: 10, b: 20 };
+      const obj2 = obj;
+      console.log("obj===obj2", obj === obj2);
+      const obj3 = { a: 10, b: 20 };
+      console.log("obj===obj3", obj === obj3);
+
+      //숫자형의 비교
+      console.log("a와 b가 같다", 10 === 10);
+      console.log("a와 b가 다르다", 13 !== 10);
+      console.log("a가 b보다 크다", 5 > 3);
+      console.log("a가 b보다 작다", 5 < 10);
+      console.log("a가 b보다 크거나 같다", 30 >= 15);
+      console.log("a가 b보다 작거나 같다", 10 <= 20);
+    </script>
+  </body>
+</html>

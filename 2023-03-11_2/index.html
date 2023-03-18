@@ -1,0 +1,74 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /**
+       * 2023-03-11 javscript styudy
+       *산술연산자2,논리연산자2
+       */
+      let a = 2;
+      //a = a + 5; //7 밑에랑 같은말이다
+      a += 5; //할당연산자
+      console.log("a", a);
+
+      let b = 5;
+      //b = b -3; //2 밑에랑 같은말이다
+      b -= 3; //할당연산자
+      console.log("b-= 3", b);
+
+      let c = 10;
+      //c = c *2;
+      c *= 2; //할당연산자
+      console.log("c*= 2", c);
+
+      let d = 30;
+      //d = d /10;
+      d /= 10; //할당연산자
+      console.log("d/= 10", d);
+
+      //제곱(es6이후)
+      let num = 2;
+      console.log("**", num ** 3);
+
+      //++, --
+      let e = 10;
+      let f = 11;
+
+      /* e = f++; //post inxrement 뒤에서 더한다
+      console.log("e=f++", e);
+      console.log("f", f);**/
+
+      e = ++f; //pre inxrement 전에더한다
+      console.log("e= ++f", e);
+      console.log("f", f);
+
+      let g = 5;
+      let h = 3;
+      /* //post decreament
+      g = h--;
+      //g=h
+      //h -= -1(h =h-1)
+      console.log("g=h--", g);
+      console.log("h", h);*/
+
+      //pre decreament
+      g = --h;
+      //h -=1
+      //g=h
+      console.log("g= --h", g);
+      console.log("h", h);
+
+      //논리연산자 ??(nullish coalescing) -es6이후
+      // a??b a가 null ,undefined 이면 b를 retrn,아니면 a를 return
+      //const name = null;
+      let name = false;
+      let text = "string";
+      console.log("name ?? text", name ?? text);
+    </script>
+  </body>
+</html>

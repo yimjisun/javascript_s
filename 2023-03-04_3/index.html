@@ -1,0 +1,48 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /**
+       * 2023-03-04 javscript styudy
+       * 산술연산자
+       * 더하기 ,빼기 , 곱하기 ,나누기 ,나머지
+       */
+      //더하기
+      //문자열은 더하기만 가능하다 뺴기안됨
+      const str1 = "hello";
+      const str2 = ", world!";
+      const sumStr = str1 + str2;
+      console.log("sumStr", sumStr);
+
+      const num1 = 100;
+      console.log("sumStr+num1", sumStr + num1);
+      //우선순위 : 문자와 숫자를 더하면 숫자를 문자로 변환한다.
+      const num2 = 200;
+      const num3 = "200";
+      console.log("num1 + num2", num1 + num2);
+      console.log("num1 + num3", num1 + num3);
+
+      //빼기 , 곱하기 ,나누기 ,나머지
+      console.log("num1 - num2", num1 - num2);
+      console.log("num1 * num2", num1 * num2);
+      console.log("num1 / num2", num1 / num2);
+      console.log("num1 % num2", num1 % num2); //나머지
+
+      //  우선순위 : 더하기 외에 산술연산자에서는 문자는 숫자로 변환된다(단 숫자로 변환가능한 경우만)
+      console.log("num1 - num3", num1 - num3);
+      console.log("num1 - num3", num1 - num3);
+      console.log("num1 * num3", num1 * num3);
+      console.log("num1 / num3", num1 / num3);
+      console.log("num1 % num3", num1 % num3); //나머지
+
+      //+ , - , * ,/ 우선순위는 수학과 같다
+      //+,-를 우선순위로 잡고 싶다면 괄호()사용
+      console.log("5 -2 *5", (5 - 2) * 5);
+    </script>
+  </body>
+</html>

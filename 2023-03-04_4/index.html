@@ -1,0 +1,54 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /**
+       * 2023-03-04 javscript styudy
+       * 논리연산자
+       *and or not
+       and =and(&&)
+       */
+
+      //and(&&)
+      //a와 b가 둘다 true면 true
+      //앞에 조건이 true먄 && 연산자 뒤에결과를 반환한다
+      //앞에 조건이 false false 반환한다
+      console.log("and(&&)", true && "and true"); //트루면 뒤에 실행
+      console.log("and(&&)", false && "and true"); //
+
+      //or (||)
+      //a와 b중 하나라도 true면 true
+      console.log("or(||)", true || true);
+      console.log("or(||)", false || true);
+      console.log("or(||)", false || false); //이건 false
+
+      //not(!)
+      //true를 false 로 false를 true로 변환
+      //반드시 boolrean타입으로 변환한다
+      console.log("!true", !true);
+      console.log("!false", !false);
+      console.log("!test", !"test");
+
+      /**
+       * 원시xk입의 true ,false
+       * 문자형 : 빈문자열을 false , 나머지는 true
+       * number(숫자형) : 0은false 나머지는 true
+       * boolean :false면false true면 true
+       * null: false
+       * undefined :false
+       */
+
+      //not(!) 논리연산자를 통해서 boolean으로 변환(!!)
+      // ! -> 강제로 boolean으로 변환(다만 반대로 true-> false) -> ! false -> true
+      console.log("string true", !!"string");
+      console.log("string true", !!"");
+      console.log("number true", !!10);
+      console.log("number false", !0);
+    </script>
+  </body>
+</html>

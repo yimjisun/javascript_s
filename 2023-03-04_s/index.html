@@ -1,0 +1,75 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /**
+       * 2023-03-04 javscript styudy
+       * 과제
+       */
+      //1번
+      const obj = { name: "chris", age: 25 };
+      console.log("obj.age", obj.age); //obj.age 25
+    </script>
+    <script>
+      //2번
+      const arr = [3, 4, 5, 1, 112, 32, 12, 29];
+      console.log("obj.arr", arr[5]); //obj.arr 32
+    </script>
+    <script>
+      /** //3번
+      let A = { name: "chris", age: 30 };
+      let B = A;
+      console.log("A", A);
+      console.log("B", B);
+      B = [5, 3, 2, 1, 7];
+      console.log("A", A); //name: "chris", age: 30
+      //4번
+      A.age = 15;
+      console.log("B", B); //5, 3, 2, 1, 7*/
+    </script>
+    <script>
+      //5번
+      let A = [10, 5, 3, 2, 7];
+      let B = A;
+      console.log("A", A);
+      console.log("B", B);
+      B = [5, 3, 2, 1, 7];
+      console.log("A", A); //10, 5, 3, 2, 7
+      //6번
+      B[2] = 30;
+      console.log("A", A); //10, 5, 3, 2, 7
+      console.log("B", B); //5, 3, 30, 1, 7
+    </script>
+    <script>
+      //7번
+      2 + (3 * 10) / 5 - 2; //6
+      console.log("sum", 2 + (3 * 10) / 5 - 2);
+      //8번
+      (10 + 15) * 7 + 2 * (5 + 2); //189
+      console.log("sum", (10 + 15) * 7 + 2 * (5 + 2));
+      //9번
+      15 >= 20; //false
+      38 ===
+        "38" - //false
+          5 >
+          5; //false
+      10 < -1; //false
+      15 != "15"; //false
+      //10번
+      true && true; //true
+      false || true; //true
+      !0; //true
+      !10; //false
+      !!""; //true
+      !!null; //false
+      !undefined; //false
+      10 && false; //true
+      0 || ""; //true
+    </script>
+  </body>
+</html>

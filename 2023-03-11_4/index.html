@@ -1,0 +1,57 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /**
+       * 2023-03-11 javscript styudy
+       * 조건문 (switch)
+       * case마다 break를 추가하지 않으면 모든 case가 실행된다
+       */
+
+      //switch
+      const name = "mange";
+      switch (name) {
+        case "mange": {
+          console.log("mange");
+          break; //브레이크가 있어야 멈춤
+        }
+        case "apple": {
+          console.log("apple");
+          break;
+        }
+        case "strawberry": {
+          console.log("strawberry");
+          break;
+        }
+        //default 이게 모두 시행되지않았을때
+        default: {
+          console.log("not found name");
+        }
+      }
+      let arg = prompt("값을 입력해주세요");
+      console.log("arg", arg); //값을 입력해야 콘솔이나온다
+
+      switch (arg) {
+        case "0": {
+          alert("0을 입력하셨습니다.");
+          break;
+        }
+
+        case "1":
+        case "2":
+        case "3": {
+          alert("1,2,3,을 입력하셨습니다.");
+          break;
+        }
+        default: {
+          alert("값을 알수없습니다");
+        }
+      }
+    </script>
+  </body>
+</html>
