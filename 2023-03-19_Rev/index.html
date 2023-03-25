@@ -1,0 +1,61 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /**
+       * 2023-03-19 javscript styudy
+       * 문자열 (srting)
+       */
+      const str = "string text";
+      const strObj = String("object string text");
+      console.log("str", str);
+      console.log("strObj", strObj);
+
+      //at
+      const index = 5;
+      console.log("string-at:", str.at(index));
+      const index2 = -3;
+      console.log("string-at:", str.at(index2));
+
+      //includes
+      const sentence = "The puick droen fox jumps over the lazy dog.";
+      const matchWord = "pui";
+      console.log("sentence match fox", sentence.includes(matchWord));
+
+      //split
+      const text = "The puick|droen fox jump|sover the lazydog.";
+      console.log(text.split(""));
+      console.log(text.split(" "));
+      console.log(text.split("|"));
+      console.log(text.split("t"));
+
+      //substring
+      const anyString = "Mozilla";
+      console.log(anyString.substring(3));
+      console.log(anyString.substring(0, 5));
+
+      //slice
+      const str2 = "Mozilla";
+      console.log("slice", str2.slice(3));
+      console.log("slice", str2.slice(1, -3));
+
+      //startsWith
+      const str3 = "The quick droen fox jump sover the lazy dog.";
+      console.log("startWith", str3.startsWith("quick", 4));
+      //endsWith
+      console.log("endsWith", str3.endsWith("The quick", 9));
+
+      //to string
+      const num = 111111111;
+      console.log("toString", num.toString());
+      console.log("String", String(true));
+
+      //
+    </script>
+  </body>
+</html>

@@ -1,0 +1,57 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const group = "fruit|car|people|company|country|tea";
+      //1번
+      const index = 6;
+      console.log("group.at:", group.at(index));
+      //2번
+      console.log(group.substring(5, 24)); //|car|people|company
+      //3번
+      console.log("group:", group.slice(-11)); //group: country|tea
+      //4번
+      console.log(group.split("|").length); //
+      //5번
+      let input = prompt();
+      console.log("input", input);
+      if (group.includes(input)) {
+        alert("found");
+      } else {
+        alert("not found");
+      }
+
+      //
+      const text = "red";
+      const sentence1 = "fox color is";
+      const sentence2 = "cow color is";
+      //6번
+      console.log(sentence1.concat(" ", text, ",", sentence2, " ", text));
+      //7번
+      console.log(
+        sentence1.concat(
+          " ",
+          text.repeat(3),
+          ",",
+          sentence2,
+          " ",
+          text.toUpperCase()
+        )
+      );
+      //8번
+      const min = 1;
+      const max = 99999;
+      const text1 = "count min is";
+      const text2 = "max is";
+
+      console.log(
+        text1.concat(" ", min.toString().padStart(5, "0"), ",", text2, max)
+      );
+    </script>
+  </body>
+</html>

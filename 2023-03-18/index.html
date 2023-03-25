@@ -1,0 +1,131 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /**
+       * 2023-03-18 javscript styudy
+       * 문자열 (srting)
+       */
+
+      /**
+       * pacacase(upperCamelcase)
+       * -> 대문자로 시작되고 단어와 단어사이를 대문자로 구분하는방식
+       * -> 생성자 함수를 선언하거나 호출할때 사용(생성자 함수를 나중에)
+       * camelcase(lowercamelcase)
+       * -> 소문자로 시작되고 단어와 던어 사이를 대문자로 구분하는 형식
+       * -> 보통 변수 혹은 함수 선언을 이 표기법으로 사용
+       * snke_case
+       * -> 소문자로 시작하고 단어와 단어 사이를 언더바(_)로 구분하느 방식
+       * -> 스크립트를 제외한 파일명들에서 쓰이긴 하지만 잘 쓰이진 않음
+       * ->쓰는 사람에 따라서 객체릐 프로퍼티 활용하는 경우도 있음
+       * kebab-case
+       * -> 소문자로 시작하고 단어와 단어사이를 하이픈(-)으로 구분하는 형식
+       * -> 폴더명을 선어할 때 자주 선언되고 변수에는 사용되지않음
+       * -. css에도 자주쓰임
+       */
+
+      const str = "string text";
+      const strObj = String("object string text");
+      console.log("str", str);
+      console.log("strObj", strObj);
+
+      //string prdtotype method
+
+      //at : 특정 index의 문자열반환
+      const index = 5; //index 문자열을 꺼내올수있음
+      console.log("string-at:", str.at(index));
+      const index2 = -2;
+      console.log("string-at:", str.at(index2));
+
+      //includes : 특정 문자가 포함됐는지 여부를 반환
+      const sentence = "The puick droen fox jumps over the lazy dog.";
+      const matchWord = "peo";
+      console.log("sentence match fox", sentence.includes(matchWord));
+
+      //split : 문자를 전부  낱개로 변환(배열 형태로)
+      const text = "The puick|droen fox jump|sover the lazydog.";
+      console.log(text.split("")); //모든 문자를 전부 분리
+      console.log(text.split(" ")); //공백을 기준으로 문자를 분리
+      console.log(text.split("|")); //특정문자기준으로 분리
+
+      //substring : 문자를 시작 index 부터 end index까지 자를떄 사용
+      //원본문자열를 변경하지않음
+      //음수는 허용하지않음
+      const anyString = "Mozilla";
+      console.log(anyString.substring(3));
+      console.log(anyString.substring(0, 1));
+      console.log(anyString.substring(2, 5));
+      console.log(anyString.substring(3, -1)); //0부터 시작되서 3이 end index로 해석됨
+      console.log("anyString", anyString);
+
+      //slice: 문자를 시작 index 부터 end index까지 자를떄 사용
+      //음수는 허용함
+      const str2 = "Mozilla";
+      console.log("slice", str2.slice(3)); //console.log(anyString.substring(3)); 랑같은해석
+      console.log("slice", str2.slice(2, -1));
+      console.log("slice", str2.slice(-4));
+
+      //startsWith: 특정 문자열로 시작되는지 여부
+      const str3 = "The quick droen fox jump sover the lazy dog.";
+      console.log("startWith", str3.startsWith("quick"));
+      console.log("startWith", str3.startsWith("The", 0));
+      console.log("startWith", str3.startsWith("quick", 4)); // 어디서 부터 시작되는지 판단
+
+      //endsWith : 특정 문자열로 끝나는지 여부
+      console.log("endsWith", str3.endsWith("dog."));
+      console.log("endsWith", str3.endsWith("The quick"));
+      console.log("endsWith", str3.endsWith("The quick", 9)); // 문자열을 길이로 자른 후 해당문자로 끝나는지 판단(idex로 세는게 아님)
+
+      //to String : 문자가 아닌 타입을 문자로 변환
+      const num = 111111111;
+      console.log("to String", num.toString());
+      console.log("String", String(true));
+
+      //toLowerCase, toUpperCase: 소문자 ,대문자변환
+      const alpha = "abcdEFGhiJK";
+      console.log("toUpperCase", alpha.toLowerCase());
+      console.log("toUpperCase", alpha.toUpperCase());
+
+      //concat : 문자열을 특정 문자를 붙여 합친다
+      const str4 = "hello";
+      const str5 = "world!";
+      console.log(str4.concat(",", str5, ",", "welcome!!!"));
+
+      //indexOf : 특정 문자열이 시작하는 첫번쨰 인덱스를 반환
+      const text2 = "The quick droen fox jump sover the lazy dog.";
+      const matchIndex = "droen";
+      console.log(text2.indexOf(matchIndex));
+
+      //replace: 문자를 특정 문자로 변환
+      const text3 = "The quick droen fox droen fox droen fox droen fox";
+      console.log(text3.replace("droen", "red")); //패턴이해못함
+      console.log(text3.replace(/drown/gi, "red")); //전부 매칭하고 싶을때 정규식 사용(/g 옵션)
+
+      // trim 앞뒤 공백을 제거
+      const text4 = " word! ";
+      rr;
+      console.log("trim", text4.trim());
+      //trimStart() 공백을 앞에만 제거
+      //trimENd() 공백을 앞에만 제거
+      console.log("trim", "word!");
+
+      //repeat : 특정문자를 계속 반복
+      const abc = "abc";
+      console.log("repeat 0", abc.repeat(0));
+      console.log("repeat 1", abc.repeat(1));
+      console.log("repeat 3", abc.repeat(3));
+      console.log("repeat 3", abc.repeat(3.5)); // 소수점버림
+
+      //pradStart, padEnd : 앞이나 뒤에 특정 문자열을 특정 길이만큼 채움
+      const numstr = "5";
+      console.log(numstr.padStart(3, "0"));
+      console.log("100".padStart(4, "0")); //부족한자리를 채운다
+      console.log("5".padEnd(4, "0")); //부족한자리를 채운다
+    </script>
+  </body>
+</html>
