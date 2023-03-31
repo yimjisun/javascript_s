@@ -1,0 +1,28 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //1번
+      const num1 = "112.56";
+      const num2 = "100.32";
+      console.log("num1 +num2 =", Number(num1) + Number.parseInt(num2));
+      //2번
+      const num3 = 2512.3123453;
+      const num4 = 2000;
+      const a = num3 + num4;
+
+      console.log("num3 + num4 =", a);
+      console.log(a.toFixed(3).toLocaleString("ko-KR"));
+      //3번
+      const student = { className: "A" };
+      let copy = { ...student };
+      copy = { chris: "31살", judy: "24살" };
+      console.log("copy", copy);
+    </script>
+  </body>
+</html>

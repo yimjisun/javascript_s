@@ -9,13 +9,80 @@
     <script>
       /**
        * 2023-03-25 javscript styudy
-       * 숫자 (number)
+       * 객체*(object)
        */
-      const num = 1;
-      //weapper object
-      const objNum = Number(1);
 
-      //타입변환기능은 wrapper method 기본매능
-      console.log("str num", Number("111"));
+      //객체의복사
+      const obj = { a: 1, b: 2, c: 3 };
+      const copy = obj; //{ a: 1, b: 2, c: 3 };
+
+      copy.b = 20; //{ a: 1, b: 20, c: 3 };
+      //원본과 같이 변경됨
+      console.log("obj", obj);
+      console.log("copy", copy);
+
+      //얕은 복사(shallow copy)
+      //dpred oprator(...obj) = 객체나 배열이 같은 타입에 분해하여 할당
+      //원본객체를 바꾸지 않고 복사된 객체를 변경하고자 할떄 사용
+      const copy2 = { ...obj }; // ...obj= a: 1, b: 2, c: 3 ({}제외) //copy와 copy2 주소가 다르다
+      copy2.c = 40;
+      console.log("obj", obj);
+      console.log("copy2", copy2);
+
+      // obj2 address =001
+      // obj2.c address =002
+      const obj2 = { a: 1, b: 2, c: { id: 10, name: "name" } }; //address: 001
+      const copy3 = { ...obj2 }; //address003 ={a:1 , b:2 , c:002}
+      copy3.a = 99;
+      copy3.c.name = "judy";
+      console.log("obj2", obj2);
+      console.log("copy3", copy3);
+      //shallow copy 떄 같은  property(kye)가 들어온다면 property값을 덮어씀
+      const copy4 = {
+        ...obj2,
+        b: 10,
+        c: { ...obj2.c }, // id: 10, name: "name"
+      };
+      copy4.c.name = "kevin";
+      console.log("copy4", copy4);
+
+      //객체에는 순서가 없고 순회를 하지 못한다
+      const obj3 = { a: 1, b: 2, c: 3, d: 4 };
+      //object.keys :객체의 key만 배열 형태로 변환
+      console.log("keys", Object.keys(obj3));
+      //object.values :객체의 values만 배열 형태로 변환
+      console.log("values", Object.values(obj3));
+      //object.entries :객체를 [key,values ] 형태의 이중 배열로 변환(es6이후)
+      console.log("entries", Object.entries(obj3));
+
+      //Object.assign :타겟객체와 그 외 객체를 합쳐서 반환(타겟 객체의 참조 주소를 따라감)
+      const target = { a: 1, b: 2 };
+      const source = { c: 3, d: 4 };
+
+      const combine = Object.assign(target, source);
+      combine.a = 10;
+      combine.c = 40;
+      console.log("target", target);
+      console.log("source", source);
+      console.log("combine", combine);
+
+      //Object.assign을 사용한 shallow copy
+      const combine3 = Object.assign({}, target, source);
+      combine3.a = 100;
+      combine3.c = 100;
+      console.log("target3", target);
+      console.log("source3", source);
+      console.log("combine3", combine3);
+      //es6 spresd문법 이후 shallow copy(합치는 방법)
+      const combine2 = {
+        ...target,
+        ...source,
+      };
+      combine2.a = 100;
+      combine2.c = 100;
+      console.log("target", target);
+      console.log("source", source);
+      console.log("combine2", combine2);
     </script>
+  </body>
 </html>

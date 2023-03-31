@@ -1,0 +1,47 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /**
+       * 2023-03-31 javscript styudy
+       * 배열(array)
+       */
+
+      /**
+       * join : 배열의 모든 값을 이어붙인다
+       * 원본을 변형시키지 않는다
+       * 매기변수에 넣는 문자를 기반으로 이어붙인다(기본값은 ,(콤마))
+       */
+      const arr = ["a", "b", "c", "d", "e", 1, 2, 3];
+      const str = arr.join(); //아무것도 안넣었으면,
+      console.log("arr", arr);
+      console.log("str", str);
+
+      const str2 = "hello world".split("");
+      console.log("str2", str2);
+      str2.splice(0, 6);
+      console.log("str2", str2.join(""));
+      // world
+      /**
+       * includes : 특정 값을 가지고 있는지 판별
+       *
+       */
+      const arr2 = ["judy", 1, 2, "chris"];
+      console.log("arr judy", arr2.includes("judy"));
+      console.log("arr 2", arr2.includes(2));
+      console.log("arr jake", arr2.includes("jake"));
+
+      /**
+       * indexOf: 특정값의 index 순서를 변환
+       *
+       */
+      console.log("chris index", arr2.indexOf("chris"));
+      console.log("judy index", arr2.indexOf("judy"));
+    </script>
+  </body>
+</html>
