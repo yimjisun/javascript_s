@@ -1,0 +1,77 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /**
+       * 2023-04-08 javscript styudy
+       * 반복문
+       */
+
+      /**while
+       *  : 외부변수가 필요함
+       * while (조건문)
+       * 조건이 거짓(false)면 종료
+       */
+      let n = 0;
+      while (n < 3) {
+        n++;
+        console.log("n", n);
+      }
+
+      //for*중요*
+      /**
+       * for (es6 아전 가장많이사용)
+       * for in (객체 순회시 성능상의 문제로 쓰이지않음)
+       * for of (es6이후)
+       * for (변수 선언(초기화); 조건문; 증감문)
+       * 조건이 참이면 계속 실행
+       * 증감은 조건이 참일때 얼마나 증감시킬 것이지
+       */
+      //i = index
+      for (let i = 0; i < 10; i++) {
+        console.log("i", i);
+      }
+
+      //역순 번복(reverse )
+      for (let i = 10; i > 0; i--) {
+        //10까지 찎어보고싶다면 10 =< : 같거다 크다 라고 적어야함
+        console.log("reverse i", i);
+      }
+
+      //증감 조건 변경
+      for (let i = 2; i < 100; i = i * 2) {
+        //2의 배수 (뒤에 원하는 조건변경가능)
+        console.log("muitiplt]y i", i);
+      }
+
+      //break : for문 종료
+      for (let i = 2; i < 100; i = i * 2) {
+        //console.log("break i", i); 여기에 찍으면 어직 종료아님
+        if (i >= 32) {
+          break;
+        }
+        console.log("break i", i);
+      }
+
+      //continue : 조건에 따라 건너 뛰지만 반복문은 계속 실행
+      //홀수만 찍는경우
+      for (let i = 0; i <= 20; i++) {
+        if (i === 0) {
+          continue;
+        } // 0은 건너띠고싶을때
+        if (i % 2 === 0) {
+          //짝수만 찍고싶으면 ===를 !== 변경
+          //% = 나머지
+          // 5의 배수만찍고싶다면  % 2를 %5로 변경
+          continue;
+        }
+        console.log("continue  i", i);
+      }
+    </script>
+  </body>
+</html>

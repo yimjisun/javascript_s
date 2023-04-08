@@ -1,0 +1,123 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /**
+       * 2023-04-08 javscript styudy
+       * 별그리기
+       * document.write(): body에 문자를 찍어준다
+       * document.write('*'):
+       */
+
+      //document.write("fsfsffw");
+
+      //문자찍기
+      document.write("*");
+      document.write("*");
+      document.write("*");
+      document.write("<br>");
+      document.write("*");
+      document.write("*");
+      document.write("-----------------------------");
+      document.write("<br>");
+      document.write("정사각형 별찍기");
+      document.write("<br>");
+      document.write("<br>");
+      document.write("<br>");
+      //정사각형 별찍기
+      //한줄당 5개별잎있는 사각형 만들기
+
+      for (let i = 0; i < 5; i++) {
+        for (let j = 0; j < 5; j++) {
+          document.write("*");
+        }
+        document.write("<br>");
+      }
+      document.write("<br>");
+      document.write("-----------------------------");
+      document.write("<br>");
+      document.write("삼각형 별찍기");
+      document.write("<br>");
+      document.write("<br>");
+      document.write("<br>");
+
+      for (let i = 0; i < 5; i++) {
+        for (let j = 0; j <= i; j++) {
+          document.write("*");
+        }
+        document.write("<br>");
+      }
+      document.write("<br>");
+      document.write("-----------------------------");
+      document.write("<br>");
+      document.write("역순 별찍기");
+      document.write("<br>");
+      document.write("<br>");
+      document.write("<br>");
+
+      for (let i = 0; i < 5; i++) {
+        for (let j = 4; j > i; j--) {
+          document.write("&nbsp;");
+        }
+        for (let j = 0; j <= i; j++) {
+          document.write("*");
+        }
+        document.write("<br>");
+      }
+
+      document.write("<br>");
+      document.write("-----------------------------");
+      document.write("<br>");
+      document.write("거꾸로 별찍기");
+      document.write("<br>");
+      document.write("<br>");
+      document.write("<br>");
+      for (let i = 0; i < 5; i++) {
+        for (let j = 5; j > i; j--) {
+          document.write("*");
+        }
+        document.write("<br>");
+      }
+      document.write("<br>");
+      document.write("-----------------------------");
+      document.write("<br>");
+      document.write("거꾸로 별찍기 -역순");
+      document.write("<br>");
+      document.write("<br>");
+      document.write("<br>");
+      for (let i = 0; i < 5; i++) {
+        for (let j = 0; j < i; j++) {
+          document.write("&nbsp;");
+        }
+        for (let j = 5; j > i; j--) {
+          document.write("*");
+        }
+        document.write("<br>");
+      }
+      document.write("<br>");
+      document.write("-----------------------------");
+      document.write("<br>");
+      document.write("예쁜삼각형 만들기");
+      document.write("<br>");
+      document.write("<br>");
+      document.write("<br>");
+      for (let i = 0; i < 5; i++) {
+        for (let j = 4; j > i; j--) {
+          document.write("&nbsp;");
+        }
+        for (let j = 0; j <= i; j++) {
+          document.write("*");
+        }
+        for (let j = 1; j <= i; j++) {
+          document.write("*");
+        }
+        document.write("<br>");
+      }
+    </script>
+  </body>
+</html>
