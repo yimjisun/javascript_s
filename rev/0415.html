@@ -1,0 +1,45 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //1번 *2 반환못함
+      const arr = [12, 33, 4, 3, 21, 13, 5, 16, 24, 2]
+        .filter((num) => num < 14)
+        .map((num) => num * 5);
+      console.log("arr", arr);
+
+      //2번  5의배수못찾
+      const arr2 = [[3, 5], 2, 10, [15, [30, 45]], 50]
+        .flat(2)
+        .filter((num) => num % 5 === 0)
+        .find((num) => num > 25);
+      // const b = arr2.flat(2);
+      // console.log("b", b);
+      // const c = b % 5 == 0;
+      // console.log("c", c);
+      // const find = b.find((num) => num > 25);
+      console.log("arr2", arr2);
+
+      //3번
+      const arr3 = [4, 2, 10, 14, -2];
+      const max = [0, 0];
+      arr3.forEach((num, index) => {
+        const findMax = Math.max(max[0], num);
+        if (findMax !== max[0]) {
+          max[0] = findMax;
+          max[1] = index;
+        }
+      });
+      console.log("max", max);
+      // d = Math.max(...arr3);
+      // console.log("d", d);
+      // const arrmap2 = arr3.map((num, index, origin) => {});
+      //14 3
+    </script>
+  </body>
+</html>

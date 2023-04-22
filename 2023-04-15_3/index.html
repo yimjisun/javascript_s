@@ -1,0 +1,49 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /**
+       * 2023-04-15 javscript styudy
+       * for of(es6 이후)
+       * 객체순환 안됨
+       * iterable 객체순환가능
+       * [Smbool.iterator] 를 가진 객체를 iterable객체라고 표헌
+       *
+       */
+      const arr = ["a", "b", "c"];
+      console.log("arr", arr);
+      for (const element of arr) {
+        console.log("element", element);
+      }
+
+      for (let i = 0; i, arr.lenth; i++) {
+        console.log("for element", arr[i]);
+      }
+
+      const obj = { b: 1, e: 1, f: 1 };
+      const keys = Object.keys(obj);
+      const values = Object.values(obj);
+      const entries = Object.entries(obj);
+      console.log("obj keys", keys);
+      console.log("obj values", values);
+      console.log("obj entries", entries);
+
+      for (const entry of entries) {
+        console.log("entry", entry);
+        console.log("key", entry[0]);
+        console.log("velue", entry[1]);
+      }
+
+      for (const [key, velue] of entries) {
+        //key, velue가 변수가됨
+        console.log("key", key);
+        console.log("velue", velue);
+      }
+    </script>
+  </body>
+</html>

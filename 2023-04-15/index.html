@@ -1,0 +1,32 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /**
+       * 2023-04-15 javscript styudy
+       * for in
+       * 원래 객체(object) 순환은 하지못함
+       * 현제 개발 트렌드에선느 사용하지않음
+       */
+
+      const obj = { a: 1, b: 2, c: 3 };
+
+      for (const key in obj) {
+        console.log("key", key);
+        console.log("velue", obj[key]); //abc접근
+      }
+
+      const objKeys = Object.keys(obj);
+      console.log("objKey", objKeys);
+      for (let i = 0; i < objKeys.length; i++) {
+        console.log("key", objKeys[i]);
+        console.log("velue", obj[objKeys[i]]);
+      }
+    </script>
+  </body>
+</html>

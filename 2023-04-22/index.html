@@ -1,0 +1,112 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /**
+       * 2023-04-22 javscript styudy
+       * constructor function생성자 함수
+       * 객체를 공통적은 템플릿으로 쉽게 생성하기 위한 함수
+       *
+       */
+      "use strict";
+      //use strict는 es6에서 바뀐 문법에 대한 엄격한 체크
+      function User(name, age) {
+        //this={}
+        this.name = name;
+        this.age = age;
+
+        //눈에 보이지 않으나 return this
+        // console.log(window);
+        // return this;
+        /**
+         * 일반적으로 함수호출의 this는 window 전역 객체를 반환
+         * "use strict"를 선언하면 일반적인 함수호출의 this는 undefined
+         */
+      }
+      const userFunc = () => {
+        return this; //window 전역개체
+      };
+      function userFunc2() {
+        return this; //undefined
+      }
+      console.log("userFunc", userFunc());
+      console.log("userFunc2", userFunc2());
+
+      /**
+       * 생선자 함수는 반드시 new 키워드를 사용해서 호출
+       * 생성자 함수는 암묵적으로 object(this)를 반환한다
+       */
+      let user1 = new User("judy", 31); //빈객체를 만듦
+      let user2 = new User("chris", 25);
+      let user3 = new User("kevin", 17);
+      //let user2 = User();
+      console.log("User1", user1);
+      console.log("User2", user2);
+      console.log("User3", user3);
+      console.log("user1 constructor", user1.constructor);
+      //console.log("User2", user2);
+
+      const obj = {}; //0x0000
+      const obj2 = {}; //0x0001
+      const obj3 = obj; //0x0000
+      console.log("obj===obj2", obj === obj2);
+      console.log("obj===obj3", obj === obj3);
+
+      console.log("user1===user2", user1 === user2);
+
+      function Person(name) {
+        this.name = name;
+        // return { 새로운 객체를 반환할수 있으나 이렇게 하면안됨
+        //a: name, this무시
+        //};
+      }
+      const Person1 = new Person("mark");
+      console.log("Person1", Person1);
+
+      function Calculator() {
+        this.nums = [];
+        this.add = (num) => {
+          this.nums.push(num);
+        };
+        this.sum = () => {
+          let acc = 0;
+          for (let num of this.nums) {
+            acc += num;
+          }
+          return acc;
+        };
+
+        this.remove = function () {
+          console.log(this);
+        };
+        this.read = () => {
+          return this.nums;
+        };
+      }
+
+      const calculator = new Calculator();
+      calculator.add(1);
+      calculator.add(2);
+      calculator.add(4);
+      calculator.add(7);
+      //calculator.remove();
+      console.log("read", calculator.read());
+      console.log("sum", calculator.sum()); //전부 더한다
+
+      /**
+       * javascript this
+       * 함수의 선언식 , 표현식(function())
+       * ->  use strict일때는 undfined 아니면 window객체
+       * 화살표 함수() => {}
+       * -> use strict 여부와 상관없이 window 전역객체
+       * 생성자 함수
+       * -> 함수, 화살표 함수 모두 'use strict'여부와 상관없이 함수 this 객체
+       */
+    </script>
+  </body>
+</html>

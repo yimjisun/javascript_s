@@ -1,0 +1,96 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /**
+       * 2023-04-15 javscript styudy
+       * iterator 함수
+       * Array Prototype 에서 제공하는 interabl객체를 제어하는 함수
+       *제공된 힘수() =>{}를 결과값으로 활용
+       *제공된 함수 매개변수 반환(값, 순서 ,원본)=>{}
+       */
+      const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+      console.log("arr", arr);
+      /**
+       * map
+       * 제공된 함수의 결과 채워진 배열을 생성
+       * 원본 배열을 손상시키지않음
+       */
+      const arrmap = arr.map((num, index, origin) => {
+        //console.log("map num", num);
+        console.log("map index", index);
+        //console.log("map origin", origin);
+        //num  맘대로 적어도된다
+        return num * 2; //return 안적어도 실행됨
+      });
+
+      console.log("arrmap", arrmap);
+      console.log("arr", arr);
+      const arrmap1 = [];
+      for (let i = 0; i < arr.length; i++) {
+        arrmap1.push(arr[i] * 2);
+      }
+      console.log("arrmap1", arrmap1);
+
+      /**
+        *find
+        제공되 함수의 결과가 true인 첫번쨰 결과(값)만 반환
+        true를 반환 시점에서 함수종료
+       * 모든ㄴ결과가 false면  undefind반환
+       */
+      const find = arr.find((num) => num >= 6);
+      console.log("find", find);
+
+      /**
+       * filter
+       * 제공된 함수의 결과가 true인 모든 결과를 새로운 배열로 밤환
+       * 모든 결과가 false면 빈배열([])을 반환
+       */
+      const filter = arr.filter((num) => num > 6);
+      console.log("filter", filter);
+
+      /**
+       * some
+       * 제공된 함수의 결과가 하나라도 true면 true
+       * 결과값이 true를 만나면 함수종료
+       * 모든 결과가 false면 false를 반환
+       */
+      const some = arr.some((num) => num > 3);
+      console.log("some", some);
+
+      /**
+       * every
+       * 제공된 함수의 결과가 모든값이 true인 경우 true를 반환
+       * 하나라도 false면 false를반환
+       */
+      const every = arr.every((num) => num > 0);
+      console.log("every", every);
+
+      /**
+       * forEach
+       * for of 모든 iterable 객체를 순환
+       * 반환값은 늘 undfined= 반환값이 없음
+       * 제공받은 함수의 가준으로 순회
+       */
+      const arr1 = [];
+      arr.forEach((num) => {
+        arr1.push(num * 2);
+      });
+      console.log("arr", arr);
+
+      /**
+       * flat
+       *중첩된 배열을 중첩이 제거된 상태로 나열
+       *매게변수 숫자만큼 중첩이 해제됨ㄴ
+       */
+      const arr2 = [[1, 2], [3, [4, 5]], 6, 7];
+      const flat = arr2.flat(2);
+      console.log("flat", flat);
+    </script>
+  </body>
+</html>

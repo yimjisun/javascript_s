@@ -1,0 +1,72 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      "use strict";
+      /**
+       * 2023-04-22 javscript styudy
+       * prototype 프로트타입
+       * 자바스크립트는 프로트타입 기반 언어
+       *모든 객체는 메소드와 속성을 상속 받기위해 프로트타입객체를 가지고 있다
+       *객체 메소드와 속성을 상속 받을 수 있고 상위 객체에 메소드와 속성도 그대로 상속받는다
+       *현재 객체 -> 상위객체 포르트타입 -> 상위객체 프로트타입을 탐색한다.(프로트타입 체인)
+       * 안쪽으로 갈수록 상위객체
+       */
+
+      function User(name) {
+        this.name = name;
+      }
+      User.prototype.age = 30; //프로트타입 상속 전부다 받는다
+      const user = new User("judy");
+      const user1 = new User("chris");
+      const user2 = new User("kevin");
+
+      console.log("user", user);
+      console.log("user name", user.name);
+      console.log("user age", user.age);
+      console.log("user email", user.email);
+
+      console.log("user1 age", user1.age);
+      console.log("user2 age", user2.age);
+
+      function Calculator(name) {
+        this.name = name;
+        this.nums = [];
+      }
+      //Calculator.prototype.nums = [];
+      Calculator.prototype.read = function () {
+        console.log(`${this.name}`, this.nums); //` 라고써야함 `${}`
+      };
+      Calculator.prototype.add = function (num) {
+        this.nums.push(num);
+      };
+
+      Calculator.prototype.sum = function (num) {
+        let acc = 0;
+        for (let num of this.nums) {
+          acc += num;
+        }
+        return acc;
+      };
+      const calc1 = new Calculator("calc1");
+      const calc2 = new Calculator("calc2");
+
+      calc1.add(1);
+      calc1.add(5);
+      calc1.add(6);
+      console.log("calc1 sum", calc1.sum());
+
+      calc2.add(15);
+      calc2.add(4);
+      calc2.add(31);
+      console.log("calc2 sum", calc2.sum());
+      calc1.read();
+      calc2.read();
+    </script>
+  </body>
+</html>
