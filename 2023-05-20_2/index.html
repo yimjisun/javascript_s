@@ -1,0 +1,93 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    .box {
+      padding: 20px;
+      border: 1px solid #ddd;
+      cursor: pointer;
+    }
+  </style>
+  <body>
+    <div class="selected-1 box">
+      click selected1
+      <div class="selected-2 box">
+        click selected2
+        <div class="selected-3 box">
+          click selected3
+          <div class="selected-4 box">click selected4</div>
+        </div>
+      </div>
+      <div class="selected-5 box">
+        click selected5
+        <div class="selected-6 box">
+          click selected6
+          <div class="selected-7 box" data-id="button1">click selected7</div>
+          <div class="selected-7 box" data-id="button2">click selected7</div>
+          <div class="selected-7 box" data-id="button3">click selected7</div>
+          <div class="selected-7 box" data-id="button4">click selected7</div>
+        </div>
+      </div>
+    </div>
+    <script>
+      /**
+       * 2023-05-20 javscript styudy
+       * cloest
+       * selector 조건에 맞는 가장 근접한 요소를 반환
+       * 상위 요소로만  접근 (같은 위계로는 접근하지않음)
+       */
+      const current = document.querySelector(".selected-4");
+      const findParent = current.closest(".selected-1");
+
+      console.log("parent", findParent);
+
+      const selected1 = document.querySelector(".selected-1");
+      const selected2 = document.querySelector(".selected-2");
+      const selected3 = document.querySelector(".selected-3");
+      const selected4 = document.querySelector(".selected-4");
+
+      /**
+       * 이벤트 버블링(event bubbling)
+       * 하위요소에 발생되는 이벤트가 dom tree구조상 중첩인 경우 상위요소로 전달되는형상
+       *
+       이벤트의 상속
+       하위요소에 발생하는 이벤트를 상위요소 한곳에서만 이벤트를 전달받아 처리하는 방법
+       */
+      //selected1.addEventListener("click", () => {
+      //   console.log("selected1");
+      //}); //클릭이벤트
+      selected2.addEventListener("click", () => {
+        console.log("selected2");
+      });
+      selected3.addEventListener("click", () => {
+        console.log("selected3");
+      });
+      selected4.addEventListener("click", () => {
+        console.log("selected4");
+      });
+
+      //버블링 빼는법
+      const selected5 = document.querySelector(".selected-5");
+      selected5.addEventListener("click", (event) => {
+        console.log("selected5 click", event.target); //target은 중첩안되고 발생되는요소만잡아줌
+        // const dataId = event.target.hasAttribute("data-id");
+        // console.log("dataId", dataId);
+        // console.log("classList", event.target.classList);
+        // console.log(
+        //   "is nclassList",
+        //   [...event.target.classList.values()].includes("selected-7")
+        // );
+        const dataId = event.target.getAttribute("data-id");
+
+        if (dataId) {
+          console.log("dataId", dataId);
+          alert(dataId);
+        }
+      }); //이벤트는 selected5한테 줌
+    </script>
+  </body>
+</html>

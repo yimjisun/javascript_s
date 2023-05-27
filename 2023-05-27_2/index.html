@@ -1,0 +1,119 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      html,
+      body {
+        padding: 0;
+        margin: 0;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div
+      id="mouseEvent"
+      style="
+        position: relative;
+        margin: 100px;
+        width: 300px;
+        height: 300px;
+        background-color: #eee;
+        overflow: hidden;
+      "
+    >
+      <div
+        id="inBox"
+        style="
+          position: absolute;
+          width: 50px;
+          height: 50px;
+          background-color: #000;
+        "
+      ></div>
+    </div>
+    <p id="text"></p>
+    <div style="margin-top: 50px">
+      <button id="clickButton">click button</button>
+    </div>
+    <script>
+      /**
+       * 2023-05-27 javscript styudy
+       * event Listener
+       * addEventListener(등록하리 이벤트 종류, 콜벡함수,옵션)
+       *docoument에서 사용자가 하는 특정 행위에 대한 이벤트를 등록할 수있음
+       */
+      const box = document.querySelector("#mouseEvent");
+      const p = document.querySelector("#text");
+      const inBox = document.querySelector("#inBox");
+      const button = document.querySelector("#clickButton");
+
+      //getBoundingClientRect : viewport 내에서 해당 dom의 상대적인 위치값제공
+      const boxOffset = box.getBoundingClientRect();
+      const inBoxOffset = inBox.getBoundingClientRect();
+      console.log("boxOffset", boxOffset);
+
+      //mouseover : 마우스 이벤트가 영역에 들어오면 한번발생(다시 발생하려면영역을 벗어났다가 들어와야함)
+      box.addEventListener("mouseover", () => {
+        //innerHTML : r기존에 있는거 날려버림
+        p.innerHTML = "마우스가 box내부로들어옴";
+      });
+
+      let isDragMove = false;
+
+      inBox.addEventListener("mousedown", () => {
+        console.log("mousedown");
+        isDragMove = true;
+      });
+      inBox.addEventListener("mouseup", () => {
+        console.log("mouseup");
+        isDragMove = false;
+      });
+
+      //mouseout : 한번 mouseover이벤트가 발생한 상태에서 마우스가 영역을 벗어날 경우 발생
+      box.addEventListener("mouseout", () => {
+        //innerHTML : r기존에 있는거 날려버림
+        p.innerHTML = "마우스가 box밖으로 나감";
+      });
+
+      //mousemove : 영역 내에서 마우스가 움직익 있는동안 계속발생
+
+      //박스안 부터의 크기계산
+      box.addEventListener("mousemove", (event) => {
+        if (isDragMove) {
+          const mouseX = event.x - boxOffset.x; //전체에서 - boxOffset.x =박스값
+          const mouseY = event.y - boxOffset.y;
+          console.log("mouse position", `x: ${mouseX}, y: ${mouseY}`);
+          inBox.style.transform = `translate(${
+            mouseX - inBoxOffset.width / 2
+          }px, ${mouseY - inBoxOffset.height / 2}px)`;
+        }
+      });
+      //click 마우스버튼을 클릭하고 손가락을떼면 이벤트 발생
+      button.addEventListener("click", () => {
+        console.log("click!");
+      });
+
+      //마우스를 누르고 있는 상태 - 아직떼기전
+      button.addEventListener("mousedown", () => {
+        console.log("mousedown!");
+      });
+
+      //마우스에서 손가락을떼면 발생
+      button.addEventListener("mouseup", () => {
+        console.log("mouseup!");
+      });
+
+      //과제 : 레인저바 만들기
+      //요건
+      //rangebar구현
+      //0%~100% 까지 텍스트로 표시해야함
+      //bor 내에  box는 양옆끝으로 이동되룻 없음
+      //bar width :300px hight :20px
+      //bar -box with :20px hight :20px
+    </script>
+  </body>
+</html>

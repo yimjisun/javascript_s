@@ -1,0 +1,48 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div style="height: 3000px"></div>
+    <script>
+      /**
+       * 2023-05-27 javscript styudy
+       * event Listener
+       * addEventListener(등록하리 이벤트 종류, 콜벡함수,옵션)
+       *docoument에서 사용자가 하는 특정 행위에 대한 이벤트를 등록할 수있음
+       */
+
+      //load 웹페이지가 동작하기위한 모든 파일이 다운로드가 완료되었을 떄 동작
+      //window : 객체에서만 사용
+      window.addEventListener("load", () => {
+        console.log("window load");
+      });
+
+      //scroll : 스크롤을 가지고 잇는 dom 객체에서 스크롤이 움직일때 동작
+      window.addEventListener(
+        "scroll",
+        (event) => {
+          const body = document.querySelector("body");
+          //console.log("scroll height", body.scrollHeight);
+          const scrollTop = body.scrollTop;
+          //console.log("scroll top", body.scrollTop);
+          /**if (scrollTop >= 100 && scrollTop < 101) {
+          alert("scrollTop 100~101"); //특정위치에 알럿뜸
+        }*/
+          if (scrollTop >= 100) {
+            alert("scrollTop 100"); //특정위치에 알럿뜸
+          }
+        },
+        { once: true } // once : ㅇ벤트를 딱 한번 발새시킴(한번발생하면 발생안함)
+      );
+
+      //resize : 브라우저의 사이즈가 변경될때마다 발생
+      window.addEventListener("resize", () => {
+        console.log("browser resize");
+      });
+    </script>
+  </body>
+</html>

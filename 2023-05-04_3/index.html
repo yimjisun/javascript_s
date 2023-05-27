@@ -1,0 +1,94 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      console.log("------head script");
+      /**
+       * 아직 body tag가 생성되기전이기때문에 null
+       */
+      console.log(window.document.body);
+      /**
+       * html 문서를 전부 다 읽고나서 수행
+       */
+      window.onload = () => {
+        //onload : 위에 있어도 읽을수있음
+        console.log("------window onload"); //window onload :document ready
+        console.log(window.document.body);
+        const divEl2 = document.getElementById("test2");
+        console.log("head divEl2", divEl2);
+      };
+    </script>
+  </head>
+  <body>
+    <div id="test">test</div>
+    <div class="selector">class selector</div>
+    <div class="selector">class selector</div>
+    <div class="selector">class selector</div>
+    <label for="label">label</label><input type="text" name="email" />
+    <span>test1</span>
+    <span>test2</span>
+    <span>test3</span>
+    <div id="parent">
+      <div class="child">child1</div>
+    </div>
+    <div class="child">child2</div>
+    <script>
+      /**
+       * 2023-05-04 javscript styudy
+       * window 객체
+       *body 내부에 있는 script는 window onliad보다 더 빨리 호출됨
+       */
+      console.log("------body script");
+      console.log(window);
+      console.log("body document1", window.document.body);
+      console.log("body document2", document.body);
+      /**
+       * selector
+       * DOM 객체에  접근할 수 있는 방법
+       * window 뺴고써도됨
+       */
+      //id로 접근 =$(#id)
+      const divEl = document.getElementById("test"); //getElementBy=Id $(#id)
+      console.log("divEl", divEl);
+      const divEl2 = document.getElementById("test2");
+      console.log("divEl2", divEl2);
+
+      //class로 접근 - 같은 class를 가진 모든 요소를 배열로 반환
+      const divEl3 = document.getElementsByClassName("selector"); //Class는 여러개라 s가 붙음 각각의 요소에 접근할 수있음
+      console.log("divEl3", divEl3);
+
+      //name으로 접근 - 같은 name을 가진 모든 요소를 배열로 반환
+      const input = document.getElementsByName("email"); //복수형
+      console.log("input", input);
+
+      //tag명으로 접근 - 같은 tag명을 가진 모든 요소를 배열로 반환
+      const span = document.getElementsByTagName("span");
+      console.log("span", span);
+
+      //query Selector,query SelectorAll
+      //id ,class , attribute , tagname 모든 요소 접근가능
+      const selector1 = document.querySelector("#test");
+      console.log("#test", selector1);
+
+      //class접근 - query Selector로는 가장 첫번째 요소한개만 접근가능
+      const selector2 = document.querySelectorAll(".selector");
+
+      //attribute로 접근
+      const selector3 = document.querySelectorAll("[name=email]");
+      console.log("[name=email]", selector3);
+
+      const selector4 = document.querySelectorAll("[for=label]");
+      console.log("[for=label]", selector4);
+
+      const selector5 = document.querySelectorAll("span");
+      console.log("span", selector5);
+
+      const selector6 = document.querySelectorAll("#parent > .child");
+      console.log("#parent > .child", selector6);
+    </script>
+    <div id="test2">test2</div>
+  </body>
+</html>

@@ -1,0 +1,57 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /**
+       * 2023-05-04 javscript styudy
+       * class
+       *
+       */
+      //class
+
+      class Person {
+        constructor(name) {
+          this.name = name;
+        }
+      }
+      const kevin = new Person("kevin");
+      console.log("kevin", kevin);
+      //function
+      function Fruit(name) {
+        this.name = name;
+        this.read = function () {};
+      }
+      Fruit.prototype.sell = function () {};
+      const apple = new Fruit("apple");
+      const banana = new Fruit("banana");
+      console.log("apple", apple);
+      console.log("banana", banana);
+
+      class Calculator {
+        constructor() {
+          this.nums = [];
+          this.sell = function () {}; //내부객체에 생성됨
+        } //밖으로 넣음 아래
+        read() {} //prototype에 확장됨
+      }
+      const calc = new Calculator();
+      console.log("calc", calc);
+
+      /**
+       * extends를 통해 class상속을 받을 수있음
+       */
+      class Calculator1 extends Calculator {}
+      class Calculator2 extends Calculator {}
+
+      const calc1 = new Calculator1();
+      const calc2 = new Calculator2();
+      console.log("calc1", calc1);
+      console.log("calc2", calc2);
+    </script>
+  </body>
+</html>
