@@ -1,0 +1,102 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <div
+      id="progressbar"
+      style="
+        position: relative;
+        margin: 100px;
+        width: 300px;
+        height: 20px;
+        background-color: #eee;
+        overflow: hidden;
+      "
+    >
+      <div
+        id="progressHandle"
+        style="
+          position: absolute;
+          width: 20px;
+          height: 20px;
+          background-color: #000;
+        "
+      ></div>
+    </div>
+    <span id="percentage"></span>
+    <script>
+      /**
+       * 2023-06-10 javscript styudy
+       * progressbar 만들기
+       */
+      const bar = document.querySelector("#progressbar");
+      const handler = document.querySelector("#progressHandle");
+      const offsetBar = bar.getBoundingClientRect();
+      const offsetHandler = handler.getBoundingClientRect();
+      // 박스가 끝에바 밖으로 못나가게하기
+      const maxMoveX = offsetBar.width - offsetHandler.width;
+
+      const percentageText = document.querySelector("#percentage");
+
+      let isDragMove = false;
+
+      window.addEventListener("load", () => {
+        percentageText.innerHTML = "0%";
+      });
+
+      //누르고떘을떄
+      bar.addEventListener("mousemove", (event) => {
+        //마우스커서가 박스가운데 위치하게하기
+        if (isDragMove) {
+          let x = event.x - offsetBar.x - offsetHandler.width / 2;
+          // 박스가 처음바밖으로 못나가게하기
+          if (x <= 0) {
+            x = 0;
+          }
+          // 박스가 끝에바 밖으로 못나가게하기
+          if (x >= maxMoveX) {
+            x = maxMoveX;
+          }
+          //.toFixed(2) 소수점뒷자리2개남기기
+
+          const percentage = parseInt((x / maxMoveX) * 100); //퍼센트구하기
+          percentageText.innerHTML = `${percentage}%`; //퍼센트 보이게 적기
+          console.log("percentage 퍼센트", percentage);
+          handler.style.transform = `translateX(${x}px)`;
+        }
+      });
+
+      //바에서 마우스를 드레그하지않으면 멈춤
+      bar.addEventListener("mouseleave", (event) => {
+        isDragMove = false;
+        startMoveX = 0; //스타트가 시작된시점에서는 0으로 초기화
+        console.log("mouseleave :drag end");
+      });
+      handler.addEventListener("mousedown", (event) => {
+        //누를떄실행
+        isDragMove = true;
+        // startMoveX = event.x; //시작시점
+        console.log("mousedown :drag start");
+      });
+      handler.addEventListener("mouseup", () => {
+        //떘을떄 멈춤
+        isDragMove = false;
+        //startMoveX = 0; //스타트가 시작된시점에서는 0으로 초기화
+        console.log("mouseup :drag end");
+      });
+
+      //부모한테 이벤트전달안함(progressHandle부모한테 버블링)
+      // handler.addEventListener("mouseenter", (event) => {
+      //   event.stopImmediatePropagation();
+      // });
+      // handler.addEventListener("mouseleave", (event) => {
+      //   event.stopImmediatePropagation();
+      //});
+    </script>
+  </body>
+</html>

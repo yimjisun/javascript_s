@@ -1,0 +1,82 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+      #warp {
+        margin: 300px;
+      }
+      .bar {
+        width: 300px;
+        height: 20px;
+        border: 1px solid #000;
+        position: relative;
+        overflow: hidden;
+      }
+      .box {
+        width: 20px;
+        height: 20px;
+        background: blue;
+        position: absolute;
+      }
+      .txt {
+        color: #000;
+        margin-top: 20px;
+        font-size: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <!--과제 : 레인저바 만들기 // isDragMove
+      //요건
+      //rangebar구현
+      //0%~100% 까지 텍스트로 표시해야함
+      //bor 내에  box는 양옆끝으로 이동되룻 없음
+      //bar width :300px hight :20px
+      //bar -box with :20px hight :20px-->
+    <div id="warp">
+      <div class="bar">
+        <div class="box"></div>
+      </div>
+      <p class="txt">X값</p>
+    </div>
+    <script>
+      const bar = document.querySelector(".bar");
+      const box = document.querySelector(".box");
+      const p = document.querySelector(".txt");
+
+      const barOffset = bar.getBoundingClientRect();
+      const boxOffset = box.getBoundingClientRect();
+      console.log("barOffset", barOffset);
+      //
+
+      let isDragMove = false;
+      box.addEventListener("mousedown", () => {
+        console.log("mousedown");
+        isDragMove = true;
+      });
+      box.addEventListener("mouseup", () => {
+        console.log("mouseup");
+        isDragMove = false;
+      });
+      //
+      bar.addEventListener("mousemove", (event) => {
+        if (isDragMove) {
+          const mouseX = event.x - barOffset.x;
+          const mouseY = event.y - barOffset.y;
+          p.innerHTML = mouseX;
+          console.log("mouse position", `x: ${mouseX}, y: ${mouseY}`);
+          box.style.transform = `translate(${mouseX - boxOffset.width / 2}px, ${
+            mouseY - boxOffset.height / 2
+          }px)`;
+        }
+      });
+    </script>
+  </body>
+</html>
