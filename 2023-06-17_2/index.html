@@ -1,0 +1,63 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        padding: 50px;
+        margin: 0;
+      }
+    </style>
+    <ul id="list-container">
+      <li id="list-item-1">리스트1</li>
+      <li id="list-item-2">리스트2</li>
+      <li id="list-item-3">리스트3</li>
+      <li id="list-item-4">리스트4</li>
+    </ul>
+  </head>
+  <body>
+    <script>
+      /**
+       * 2023-06-17 javscript styudy
+       * element 요소를 삽입하는방법
+       *
+       */
+
+      //append - 선택된 요소 내부 끝에 삽입
+      //prepend - 선택된 요소 내부 시작부분에 삽입
+      //after - 선택된 요소 뒤애 삽입
+      //before - 선택된 요소 앞에 삽입
+      //전부 n개의 요소룰 한번에 삽입가능
+
+      const container = document.querySelector("#list-container");
+
+      //createElement : dom요소를 생성
+      const appendList = document.createElement("li");
+      appendList.textContent = "리스트5";
+
+      const appendList2 = document.createElement("li");
+      appendList2.textContent = "리스트6";
+
+      const appendList3 = document.createElement("li");
+      appendList3.textContent = "리스트0";
+
+      //참조주소가 같은 경우에는 append로 추가되지않음(새로운 객체만 가능)
+      container.append(appendList, appendList2);
+      //같은 참조 주소로 append된 요소가 있으면 교체된다
+      container.prepend(appendList3);
+
+      const item1 = document.querySelector("#list-item-1");
+      const item3 = document.querySelector("#list-item-3");
+
+      const afterList1 = document.createElement("li");
+      afterList1.textContent = "리스트1.5";
+      item1.after(afterList1);
+
+      const beforeList3 = document.createElement("li");
+      beforeList3.textContent = "리스트2.5";
+      item3.before(beforeList3);
+    </script>
+  </body>
+</html>

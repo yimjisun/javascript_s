@@ -1,0 +1,150 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        padding: 50px;
+        margin: 0;
+      }
+      .student-list {
+        width: 100%;
+        border: 1px solid #333;
+        border-collapse: collapse;
+        margin-top: 50px;
+      }
+      .student-list th,
+      .student-list td {
+        border: 1px solid #333;
+        padding: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <button id="button1" type="bytton">바나나</button>
+    <button id="button2" type="bytton">딸기</button>
+    <button id="button3" type="bytton">사과</button>
+    <div id="container1"></div>
+    <div id="container2"></div>
+    <div id="container3"></div>
+
+    <script>
+      /**
+       * 2023-06-17 javscript styudy
+       * DOM을 추가하는방법
+       *
+       */
+      /**innerHTML
+       * 선택된 element의 내부에 문자 혹은 태그를 삽입할 수있음
+       * 기존의 내용을 완전히 지우고 새로 갱신함(덮어씀)
+       * 태그요소도 가져옴
+       */
+
+      const button1 = document.querySelector("#button1");
+      const button2 = document.querySelector("#button2");
+      const button3 = document.querySelector("#button3");
+
+      console.log("button1.innerHTML", button1.innerHTML);
+      //textcontent : element 내부의 요소를 꺼내올 수있음
+      //innerHTML와 역할은 비슷하나 태그를 해석하지 앟고 문자열만 해석하기에 성능이 더 좋음
+      console.log("textcontent", button1.textContent);
+
+      const container1 = document.querySelector("#container1");
+      // container1.innerHTML = "<p>컨텐츠 표시</p>"; //문자만 넣을수이ㅛ음 <p>태그같은건 쓸수이ㅛ음
+      // container1.innerHTML = "<p>컨텐츠 표시2</p>";
+
+      //한번에처리하는법
+      const handleClickButton = () => {
+        const target = event.target;
+        container1.innerHTML = target.textContent;
+      };
+
+      //위에 한번에 처리하는법 밑에는 위에꺼를 푼거
+      button1.addEventListener("click", (event) => {
+        const target = event.target;
+        container1.innerHTML = target.textContent;
+      });
+
+      button2.addEventListener("click", (event) => {
+        const target = event.target;
+        container1.innerHTML = target.textContent;
+      });
+
+      button3.addEventListener("click", (event) => {
+        const target = event.target;
+        container1.innerHTML = target.textContent;
+      });
+
+      const lists = [
+        { id: 1, name: "chris", age: 24, email: "chris@gamil.com" },
+        { id: 2, name: "judy", age: 17, email: "judy@gamil.com" },
+        { id: 3, name: "evan", age: 37, email: "evan@gamil.com" },
+        { id: 4, name: "phillip", age: 19, email: "phillip@gamil.com" },
+        { id: 5, name: "justine", age: 26, email: "justine@gamil.com" },
+      ];
+
+      let tableBody = "";
+
+      for (const list of lists) {
+        //console.log("list", list);
+        tableBody += `
+        <tr>
+          <td>${list.id}</td>
+          <td>${list.name}</td>
+          <td>${list.age}</td>
+          <td>${list.email}</td>
+        </tr>`;
+      }
+
+      console.log("tableBody", tableBody);
+      // ` : template literal
+      const container2 = document.querySelector("#container2");
+      container2.innerHTML = `
+      <table class="student-list">
+            <thead>
+              <tr>
+                <th>번호</th>
+                <th>이름</th>
+                <th>나이</th>
+                <th>이메일</th>
+              </tr>
+            </thead>
+            <tbody>
+            ${tableBody}
+            </tbody>
+          </table>
+      `;
+
+      const container3 = document.querySelector("#container3");
+
+      const createDataTable = (lists) => {
+        const result = `
+          <table class="student-list">
+            <thead>
+              <tr>
+                <th>번호</th>
+                <th>이름</th>
+                <th>나이</th>
+                <th>이메일</th>
+              </tr>
+            </thead>
+            <tbody>
+            ${lists.map(
+              (list) => `
+                <tr>
+                ${Object.values(list).map((cell) => `<td>${cell}</td>`)}
+                </tr>
+              `
+            )}
+            </tbody>
+          </table>
+        `;
+        return result;
+      };
+
+      container3.innerHTML = createDataTable(lists);
+    </script>
+  </body>
+</html>
