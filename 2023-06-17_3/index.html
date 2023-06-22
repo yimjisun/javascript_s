@@ -9,9 +9,21 @@
         padding: 50px;
         margin: 0;
       }
+      .students-list {
+        width: 100%;
+        border: 1px solid #333;
+        border-collapse: collapse;
+        margin-top: 50px;
+      }
+      .students-list th,
+      .students-list td {
+        border: 1px solid #333;
+        padding: 10px;
+      }
     </style>
   </head>
   <body>
+    <div id="list1"></div>
     <script>
       /**
        * 2023-06-17 javscript styudy
@@ -31,6 +43,7 @@
        * 6. '앞에추가'버튼을 누르면 해당 리스트 바로 위에 새로운 학생추가 *난이도 상
        * 7. '뒤에추가'버튼을 누르면 해당 리스트 바로 아래에 새로운 학생추가 *난이도 상
        */
+
       const students = [
         { id: 1, name: "chris", age: 24, email: "chris@gamil.com" },
         { id: 2, name: "judy", age: 17, email: "judy@gamil.com" },
@@ -38,6 +51,35 @@
         { id: 4, name: "phillip", age: 19, email: "phillip@gamil.com" },
         { id: 5, name: "justine", age: 26, email: "justine@gamil.com" },
       ];
+
+      const list1 = document.querySelector("#list1");
+
+      let tableBody = "";
+
+      for (const list of students) {
+        tableBody += `
+      <tr>
+        <td>${list.id}</td>
+        <td>${list.name}</td>
+        <td>${list.age}</td>
+        <td>${list.email}</td>
+      </tr>`;
+      }
+      list1.innerHTML = `
+      <table class="students-list">
+            <thead>
+              <tr>
+                <th>번호</th>
+                <th>이름</th>
+                <th>나이</th>
+                <th>이메일</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${tableBody}
+            </tbody>
+          </table>
+      `;
     </script>
   </body>
 </html>
