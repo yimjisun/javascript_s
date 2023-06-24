@@ -1,0 +1,109 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        padding: 50px;
+        margin: 0;
+      }
+      .students-list {
+        width: 100%;
+        border: 1px solid #333;
+        border-collapse: collapse;
+        margin-top: 50px;
+      }
+      .students-list th,
+      .students-list td {
+        border: 1px solid #333;
+        padding: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="btn" style="float: right">
+      <button id="button1" type="bytton">앞버튼</button>
+      <button id="button2" type="bytton">뒤버튼</button>
+    </div>
+    <div id="list1"></div>
+    <script>
+      /**
+       * 2023-06-17 javscript styudy
+       * 리스트 요소 삽입,추가
+       *
+       */
+
+      /**
+       * 구현요건
+       * 1. students 배열로 테이블생성 (번호 이름 나이 이메알)
+       * 2. 테이블 위에는 버튼 '앞에추가','뒤에추가'있음
+       * 3. '앞에추가' 버튼을 누르면 테이블 리스트 제일 위에 새로운 학생추가(나용 상관없음)
+       * 4. '뒤에추가' 버튼을 누르면 테이블 리스트 제일 하단에 새로운 학생추가(나용 상관없음)
+       *
+       * //어려움
+       * 5. 각 리스트에는 버튼이 있고 '앞에 추가', '뒤에추가'버튼이있음 *난이도 상
+       * 6. '앞에추가'버튼을 누르면 해당 리스트 바로 위에 새로운 학생추가 *난이도 상
+       * 7. '뒤에추가'버튼을 누르면 해당 리스트 바로 아래에 새로운 학생추가 *난이도 상
+       */
+
+      const students = [
+        { id: 1, name: "chris", age: 24, email: "chris@gamil.com" },
+        { id: 2, name: "judy", age: 17, email: "judy@gamil.com" },
+        { id: 3, name: "evan", age: 37, email: "evan@gamil.com" },
+        { id: 4, name: "phillip", age: 19, email: "phillip@gamil.com" },
+        { id: 5, name: "justine", age: 26, email: "justine@gamil.com" },
+      ];
+
+      const list1 = document.querySelector("#list1");
+      const button1 = document.querySelector("#button1");
+      const button2 = document.querySelector("#button2");
+
+      let tableBody = "";
+
+      for (const list of students) {
+        tableBody += `
+      <tr>
+        <td>${list.id}</td>
+        <td>${list.name}</td>
+        <td>${list.age}</td>
+        <td>${list.email}</td>
+      </tr>`;
+      }
+
+      const students2 = [
+        { id: 0, name: "sun", age: 28, email: "dlawltjs@gamil.com" },
+      ];
+      let tableBody2 = "";
+
+      for (const list of students2) {
+        tableBody2 += `
+      <tr>
+        <td>${list.id}</td>
+        <td>${list.name}</td>
+        <td>${list.age}</td>
+        <td>${list.email}</td>
+      </tr>`;
+      }
+      button1.addEventListener("click", (event) => {
+        const target = event.target;
+      });
+      list1.innerHTML = `
+      <table class="students-list">
+            <thead>
+              <tr>
+                <th>번호</th>
+                <th>이름</th>
+                <th>나이</th>
+                <th>이메일</th>
+              </tr>
+            </thead>
+            <tbody>g 
+              ${tableBody}
+            </tbody>
+          </table>
+      `;
+    </script>
+  </body>
+</html>
