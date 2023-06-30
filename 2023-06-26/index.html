@@ -9,14 +9,14 @@
         padding: 50px;
         margin: 0;
       }
-      table {
+      .students-list {
         width: 100%;
         border: 1px solid #333;
         border-collapse: collapse;
         margin-top: 50px;
       }
-      table th,
-      table td {
+      .students-list th,
+      .students-list td {
         border: 1px solid #333;
         padding: 10px;
       }
@@ -60,37 +60,125 @@
       ];
 
       const table = document.querySelector("#styudent-table");
-      const prependBtn = document.querySelector("#prepend");
-      const appendBtn = document.querySelector("#append");
+      table.setAttribute(
+        "style",
+        "width:100%; table-layout:fixed; border-collapse:collapse;"
+      );
+      /**
+       * setAttribute : tag가 가진 속성을 선택하고 그 속성에 값을 지정하는 함수
+       */
 
-      let tableBody = "";
+      thead = document.createElement("thead"); //createElement 없는애 만드는거
+      const theadRow = document.createElement("tr");
+      const studentKeys = Object.keys(students[0]);
+      studentKeys.forEach((key) => {
+        const theadColumn = document.createElement("th");
+        theadColumn.setAttribute(
+          "style",
+          "padding:5px 10px; border:1px solid #444; text-align: center; background-color:#eee;"
+        );
+        theadColumn.textContent = key;
+        theadRow.append(theadColumn);
+      });
+      thead.append(theadRow);
+      //keys만 빼서 만들기
+      // thead.innerHTML = `<tr>
+      //   ${Object.keys(students[0]).map(
+      //     (key) => `<th class="table-header">${key}</th>`const
+      //   )}
+      //   </tr>`.replace(/,/g, ""); //['id','name' ,'age'.'email']
 
-      for (const list of students) {
-        tableBody += `
-      <tr>
-        <td>${list.id}</td>
-        <td>${list.name}</td>
-        <td>${list.age}</td>
-        <td>${list.email}</td>
-      </tr>`;
-      }
+      // thead.setAttribute("style", "padding:5px 10px; border:1px solid #444;");
+      table.append(thead);
+      const tbody = document.createElement("tbody");
+      tbody.setAttribute("id", "table-body");
+      students.forEach((student) => {
+        const tbodyRow = document.createElement("tr");
+        //students(object)-> array : object.keys , object.values ,object.entries
+        //students객체라 배열로 변환
+        Object.values(student).forEach((value) => {
+          const tbodyColumn = document.createElement("td");
+          tbodyColumn.setAttribute(
+            "style",
+            "padding:5px 10px; border:1px solid #444;text-align: center;"
+          );
+          tbodyColumn.textContent = value;
+          tbodyRow.append(tbodyColumn);
+        }); //students를 배열로 바꿈
+        tbody.append(tbodyRow);
+      });
 
-      table.innerHTML = `
-      <table class="styudent-table">
-            <thead>
-              <tr>
-                <th>번호</th>
-                <th>이름</th>
-                <th>나이</th>
-                <th>이메일</th>
-                <th>버튼</th>
-              </tr>
-            </thead>
-            <tbody>
-              ${tableBody}
-            </tbody>
-          </table>
-      `;
+      table.append(tbody); //마지막에  위내용울 붙임
+      //table.innerHTML = students.map((student) => `<tr>"</tr>`);
+      const prependButton = document.querySelector("#prepend");
+      const appendButton = document.querySelector("#append");
+
+      prependButton.addEventListener("click", () => {
+        console.log("prepend click"); //콘솔로 되는지 확인
+        const tbody = document.querySelector("#table-body");
+        const firstId = Number(tbody.firstChild.firstChild.textContent);
+        const addStudent = {
+          id: firstId - 1,
+          name: document.querySelector("#name").value,
+          age: document.querySelector("#age").value,
+          email: document.querySelector("#email").value,
+        };
+
+        // 칸만들기
+        const addTbodyRow = document.createElement("tr");
+        Object.values(addStudent).forEach((value) => {
+          const addTbodyColumn = document.createElement("td");
+          addTbodyColumn.setAttribute(
+            "style",
+            "padding:5px 10px; border:1px solid #444;text-align: center;"
+          );
+          addTbodyColumn.textContent = value;
+          addTbodyRow.append(addTbodyColumn);
+        });
+
+        tbody.prepend(addTbodyRow);
+      });
+      appendButton.addEventListener("click", () => {
+        console.log("append click");
+        const tbody = document.querySelector("#table-body");
+        const lastId = Number(tbody.lastChild.firstChild.textContent);
+        const addStudent = {
+          id: lastId + 1,
+          name: document.querySelector("#name").value,
+          age: document.querySelector("#age").value,
+          email: document.querySelector("#email").value,
+        };
+
+        // 칸만들기
+        const addTbodyRow = document.createElement("tr");
+        Object.values(addStudent).forEach((value) => {
+          const addTbodyColumn = document.createElement("td");
+          addTbodyColumn.setAttribute(
+            "style",
+            "padding:5px 10px; border:1px solid #444;text-align: center;"
+          );
+          addTbodyColumn.textContent = value;
+          addTbodyRow.append(addTbodyColumn);
+        });
+
+        tbody.append(addTbodyRow);
+      });
+      const btn = document.createElement("btn");
+      const addStudent1 = {
+        id: firstId - 1,
+        name: document.querySelector("#name").value,
+        age: document.querySelector("#age").value,
+        email: document.querySelector("#email").value,
+      };
+      Object.values(addStudent1).forEach((value) => {
+        const btn = document.createElement("td");
+        btn.setAttribute(
+          "style",
+          "padding:5px 10px; border:1px solid #444;text-align: center;"
+        );
+        btn.textContent = value;
+        addTbodyRow.append(btn);
+      });
     </script>
   </body>
 </html>
