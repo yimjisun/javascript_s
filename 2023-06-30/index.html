@@ -165,17 +165,11 @@
       });
       const btn = document.createElement("btn");
       const addStudent1 = {
-        id: firstId - 1,
-        name: document.querySelector("#name").value,
-        age: document.querySelector("#age").value,
-        email: document.querySelector("#email").value,
+        btn: document.querySelector("#btn").value,
       };
       Object.values(addStudent1).forEach((value) => {
-        const btn = document.createElement("td");
-        btn.setAttribute(
-          "style",
-          "padding:5px 10px; border:1px solid #444;text-align: center;"
-        );
+        const btn = document.createElement("div");
+        btn.setAttribute("style", "background-color: #eee;");
         btn.textContent = value;
         addTbodyRow.append(btn);
       });
